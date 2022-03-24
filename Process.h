@@ -7,7 +7,7 @@
 */
 struct Process
 {
-  unsigned int id, totalTime, remainingTime;
+  unsigned int id, totalTime, remainingTime, remainingCPU, remainingIO, real, user, sys, idle;
   int priority;
   unsigned short cpuBurst, ioBurst;
   char state;

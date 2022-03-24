@@ -6,14 +6,6 @@
 * has functions: printProcess, *createProcess, and switchState
 */
 
-
-void printProcess(struct Process *process)
-{
-  printf("%2d\t%3d\t%3d\t%3d\t%3d\t%3d\t    %c\n", process->id, process->priority,
-    process->cpuBurst, process->ioBurst, process->totalTime, process->remainingTime,
-    process->state);
-} // printProcess
-
 struct Process *createProcess(int newID, int priority, int cpuBurst,
   int ioBurst, int totalTime)
 {
@@ -29,6 +21,19 @@ struct Process *createProcess(int newID, int priority, int cpuBurst,
 
   return newProcess;
 } // createProcess
+
+void printProcess(struct Process *process)
+{
+  printf("%2d\t%3d\t%3d\t%3d\t%3d\t%3d\t    %c\n", process->id, process->priority,
+    process->cpuBurst, process->ioBurst, process->totalTime, process->remainingTime,
+    process->state);
+} // printProcess
+
+void printProcStats(struct Process *process)
+{
+  printf("Process: %d\n real: %d\n user: %d\n sys: %d\n idle: %d", process->id,
+    process->real, process->user, process->sys, process->idle);
+} // printProcStats
 
 int switchState(struct Process *processToSwitch, char newState)
 {
