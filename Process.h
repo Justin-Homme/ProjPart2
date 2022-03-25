@@ -2,8 +2,8 @@
 #define PROC
 
 /**
-* Header file that makes a struct: Process
-* with id, totalTime, remainingTime, priority, cpuBurst, ioBurst, state
+* Header file that makes a struct: Process with id, totalTime, remainingTime,
+*   remainingCPU, remainingIO, priority, cpuBurst, ioBurst, state
 */
 struct Process
 {
@@ -13,11 +13,14 @@ struct Process
   char state;
 };
 
-void printProcess(struct Process *process);
-
+/** creates a new process */
 struct Process *createProcess(int newID, int priority, int cpuBurst,
   int ioBurst, int totalTime);
 
+/** prints out the process */
+void printProcess(struct Process *process);
+
+/** switches current state to new state if legal transition */
 int switchState(struct Process *processToSwitch, char newState);
 
 #endif

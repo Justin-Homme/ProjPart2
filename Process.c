@@ -78,7 +78,7 @@ int switchState(struct Process *processToSwitch, char newState)
           break;
 
         default:
-          val = 1;
+          val = 1;    // anything else is unexpected and invalid
           break;
     }
 

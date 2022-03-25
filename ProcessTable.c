@@ -12,18 +12,18 @@ struct ProcessTable *createInitialTable(int newNumProcesses, int sliceval)
   newTable->processes = (struct Process **)malloc(newNumProcesses * sizeof(struct Process*));
 
   return newTable;
-}
+} // createInitialTable
 
 void printTable(struct ProcessTable *tableToPrint)
 {
   printf("Number of processes: %d\n", tableToPrint->numberProc);
   printf("ID\tPri\tCPU\tI/O\tTot\tRem\tState\n");
-  
+
   for(int i = 0; i < tableToPrint->numberProc; i++)
   {
     printProcess(tableToPrint->processes[i]);
   }
-}
+} // printTable
 
 int findpid(struct ProcessTable *tp, int pid)
 {
@@ -40,7 +40,7 @@ int findpid(struct ProcessTable *tp, int pid)
     }
   }
   return -1;
-}
+} // findpid
 
 void freeProcessTable(struct ProcessTable *tableToFree)
 {
@@ -49,4 +49,4 @@ void freeProcessTable(struct ProcessTable *tableToFree)
     free(tableToFree->processes[i]);
   }
   free(tableToFree);
-}
+} // freeProcessTable
