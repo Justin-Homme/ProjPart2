@@ -3,7 +3,7 @@
 
 #include "Process.h"
 /**
-* struct with: numberProc, **processes, cpuProc, rr_slice
+* struct with: numberProc, **processes, cpuProc, timeSlice, clockTime, rr_slice
 *
 * functions: *createInitialTable, printTable, findpid, freeProcessTable
 */
@@ -11,8 +11,8 @@ struct ProcessTable
 {
   int numberProc;
   struct Process **processes;
-  int cpuProc;
-  int rr_slice;
+  int cpuProc, timeSlice, clockTime;
+  int rr_slice; // time slice for round robin scheduling
 };
 
 /** creates a ProcessTable with the provided data */
