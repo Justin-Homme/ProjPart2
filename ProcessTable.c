@@ -8,7 +8,7 @@ struct ProcessTable *createInitialTable(int newNumProcesses, int sliceval)
 
   newTable->numberProc = newNumProcesses;
   newTable->cpuProc = -1;
-  newTable->rr_slice = sliceval;
+  newTable->timeSlice = sliceval;
   newTable->processes = (struct Process **)malloc(newNumProcesses * sizeof(struct Process*));
 
   return newTable;
