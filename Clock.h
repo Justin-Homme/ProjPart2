@@ -5,7 +5,7 @@
 
 struct ProcessTable *myProcTable;
 
-int *tick;
+int tick, remProcesses;
 
 /** makes the clock tick and takes care of what happens when it does */
 clockTick();
