@@ -11,6 +11,7 @@ clockTick()
   struct Process **myCurProc = myProcTable -> processes[0];
   while(remProcesses > 0) {
       printf("%04d: ", tick);
+      
   }
 
 } // clocktick
