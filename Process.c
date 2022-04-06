@@ -18,6 +18,10 @@ struct Process *createProcess(int newID, int priority, int cpuBurst,
   newProcess->totalTime = totalTime;
   newProcess->remainingTime = totalTime;  // new process so full time remains
   newProcess->state = 'N';                // 'N' because it's a new process
+  newProcess->real = 0;
+  newProcess->user = 0;
+  newProcess->sys = 0;
+  newProcess->idle = 0;
 
   return newProcess;
 } // createProcess
