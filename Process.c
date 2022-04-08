@@ -14,7 +14,9 @@ struct Process *createProcess(int newID, int priority, int cpuBurst,
   newProcess->id = newID;
   newProcess->priority = priority;
   newProcess->cpuBurst = cpuBurst;
+  newProcess->remainingCPU = cpuBurst;
   newProcess->ioBurst = ioBurst;
+  newProcess->remainingIO = ioBurst;
   newProcess->totalTime = totalTime;
   newProcess->remainingTime = totalTime;  // new process so full time remains
   newProcess->state = 'N';                // 'N' because it's a new process
@@ -35,7 +37,7 @@ void printProcess(struct Process *process)
 
 void printProcStats(struct Process *process)
 {
-  printf("Process: %d\n real: %d\n user: %d\n sys: %d\n idle: %d", process->id,
+  printf("Process: %d\n real: %d\n user: %d\n sys: %d\n idle: %d\n", process->id,
     process->real, process->user, process->sys, process->idle);
 } // printProcStats
 

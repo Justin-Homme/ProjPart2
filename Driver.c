@@ -96,6 +96,11 @@ main(int argc, char *argv[])
     readFile(processTable, filename);
 
     /*
+    * create a Clock struct to use for clockTick()
+    */
+    struct Clock *myClock = createClock(processTable, sliceval, sched);
+
+    /*
      * show the starting state of affairs
      */
     printTable(processTable);
@@ -103,14 +108,20 @@ main(int argc, char *argv[])
     /*
      * now let the processes begin:
      */
-    while (nonTerm(processTable) > 0) {
-	clockTick();
-    }
+//    while (nonTerm(processTable) > 0) {
+//    while (processTable > 0) {
+	clockTick(myClock);
+//    }
 
     /*
      * show them all done
      */
     printTable(processTable);
+
+    /*
+    * free up the memory
+    */
+    freeClock(myClock);
 
     return 0;
   } // main
